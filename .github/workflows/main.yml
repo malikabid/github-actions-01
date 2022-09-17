@@ -22,15 +22,20 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Step 1 - Log the pre-build disc space
+        run: df
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - name: Step 2 - Checkout the main branch from Github
+        uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: sh ./github-actions-script.sh
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Moved to Shell Scrip File
-          
+      - name: Step 3 - List all files
+        run: ls 
+      
+      - name: Step 4 - Check php version
+        run: php -v
+      
+      - name: Step 5 - List Environment Variables
+        run: env
+        
+      - name: Step  - Log the post-build disc space
+        run: df
