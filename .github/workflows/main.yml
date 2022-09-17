@@ -32,9 +32,19 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          echo List all files.
+          echo 1. List all files.
           ls -a 
-          echo Is php installed?
+          echo 2. Is php installed?
           php -v
-          echo Is git installed?
+          echo 3. Is git installed?
           git --version
+          echo 4. Where is the webroot dirctory?
+          echo $WEBROOT
+          echo 5. Where is the workspace location?
+          echo $RUNNER_WORKSPACE
+          echo 6. Who is running the script?
+          whoami
+          echo 7. How is the disk laid out?
+          df -h
+          echo 8. What environment variables are available?
+          env 
